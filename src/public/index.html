@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Астрологический Прогноз</title>
+    <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="stars-container">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+
+    <div class="container main-container">
+        <header class="text-center mt-4 mb-5">
+            <h1 class="display-4 text-light fw-bold cosmic-glow">Звёздное Предсказание</h1>
+            <p class="lead text-light">Астрологический прогноз на основе нейросети</p>
+        </header>
+
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+                <div class="card bg-dark bg-opacity-75 border-0 shadow-lg">
+                    <div class="card-body p-4">
+                        <h2 class="card-title text-center mb-4 cosmic-glow">Узнайте свой гороскоп</h2>
+                        
+                        <div class="form-section mb-4">
+                            <div class="toggle-container mb-4">
+                                <div class="btn-group w-100" role="group">
+                                    <input type="radio" class="btn-check" name="selectionType" id="bySign" checked>
+                                    <label class="btn btn-outline-secondary" for="bySign">По знаку зодиака</label>
+                                    
+                                    <input type="radio" class="btn-check" name="selectionType" id="byDate">
+                                    <label class="btn btn-outline-secondary" for="byDate">По дате рождения</label>
+                                </div>
+                            </div>
+                            
+                            <div id="signSelector" class="mb-3">
+                                <label class="form-label">Выберите знак зодиака:</label>
+                                <div class="zodiac-grid">
+                                    <div class="zodiac-item" data-sign="aries">
+                                        <div class="zodiac-icon">♈</div>
+                                        <div class="zodiac-name">Овен</div>
+                                    </div>
+                                    <div class="zodiac-item" data-sign="taurus">
+                                        <div class="zodiac-icon">♉</div>
+                                        <div class="zodiac-name">Телец</div>
+                                    </div>
+                                    <div class="zodiac-item" data-sign="gemini">
+                                        <div class="zodiac-icon">♊</div>
+                                        <div class="zodiac-name">Близнецы</div>
+                                    </div>
+                                    <div class="zodiac-item" data-sign="cancer">
+                                        <div class="zodiac-icon">♋</div>
+                                        <div class="zodiac-name">Рак</div>
+                                    </div>
+                                    <div class="zodiac-item" data-sign="leo">
+                                        <div class="zodiac-icon">♌</div>
+                                        <div class="zodiac-name">Лев</div>
+                                    </div>
+                                    <div class="zodiac-item" data-sign="virgo">
+                                        <div class="zodiac-icon">♍</div>
+                                        <div class="zodiac-name">Дева</div>
+                                    </div>
+                                    <div class="zodiac-item" data-sign="libra">
+                                        <div class="zodiac-icon">♎</div>
+                                        <div class="zodiac-name">Весы</div>
+                                    </div>
+                                    <div class="zodiac-item" data-sign="scorpio">
+                                        <div class="zodiac-icon">♏</div>
+                                        <div class="zodiac-name">Скорпион</div>
+                                    </div>
+                                    <div class="zodiac-item" data-sign="sagittarius">
+                                        <div class="zodiac-icon">♐</div>
+                                        <div class="zodiac-name">Стрелец</div>
+                                    </div>
+                                    <div class="zodiac-item" data-sign="capricorn">
+                                        <div class="zodiac-icon">♑</div>
+                                        <div class="zodiac-name">Козерог</div>
+                                    </div>
+                                    <div class="zodiac-item" data-sign="aquarius">
+                                        <div class="zodiac-icon">♒</div>
+                                        <div class="zodiac-name">Водолей</div>
+                                    </div>
+                                    <div class="zodiac-item" data-sign="pisces">
+                                        <div class="zodiac-icon">♓</div>
+                                        <div class="zodiac-name">Рыбы</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="dateSelector" class="mb-3 d-none">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3 mb-md-0">
+                                        <label for="month" class="form-label">Месяц:</label>
+                                        <select id="month" class="form-select">
+                                            <option value="1">Январь</option>
+                                            <option value="2">Февраль</option>
+                                            <option value="3">Март</option>
+                                            <option value="4">Апрель</option>
+                                            <option value="5">Май</option>
+                                            <option value="6">Июнь</option>
+                                            <option value="7">Июль</option>
+                                            <option value="8">Август</option>
+                                            <option value="9">Сентябрь</option>
+                                            <option value="10">Октябрь</option>
+                                            <option value="11">Ноябрь</option>
+                                            <option value="12">Декабрь</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="day" class="form-label">День:</label>
+                                        <select id="day" class="form-select">
+                                            <!-- Дни будут добавлены через JavaScript -->
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Период:</label>
+                                <div class="btn-group w-100" role="group">
+                                    <input type="radio" class="btn-check" name="timeFrame" id="today" value="сегодня" checked>
+                                    <label class="btn btn-outline-secondary" for="today">Сегодня</label>
+                                    
+                                    <input type="radio" class="btn-check" name="timeFrame" id="tomorrow" value="завтра">
+                                    <label class="btn btn-outline-secondary" for="tomorrow">Завтра</label>
+                                    
+                                    <input type="radio" class="btn-check" name="timeFrame" id="week" value="неделя">
+                                    <label class="btn btn-outline-secondary" for="week">Неделя</label>
+                                    
+                                    <input type="radio" class="btn-check" name="timeFrame" id="month" value="месяц">
+                                    <label class="btn btn-outline-secondary" for="month">Месяц</label>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center mt-4">
+                                <button id="getHoroscopeBtn" class="btn btn-primary btn-lg px-5">Узнать судьбу</button>
+                            </div>
+                        </div>
+                        
+                        <div id="loadingSpinner" class="text-center my-5 d-none">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Загрузка...</span>
+                            </div>
+                            <p class="mt-3">Анализируем расположение звёзд...</p>
+                        </div>
+                        
+                        <div id="horoscopeResult" class="result-section d-none">
+                            <div class="result-header text-center mb-4">
+                                <div id="signIcon" class="sign-icon mb-3">♈</div>
+                                <h3 id="signTitle" class="cosmic-glow">Овен</h3>
+                                <div class="text-muted mb-3">
+                                    <span id="timeFrameText">Сегодня</span> • <span id="currentDate">12 мая 2025</span>
+                                </div>
+                            </div>
+                            
+                            <div class="prediction-box p-4 mb-4">
+                                <p id="prediction" class="prediction-text mb-0"></p>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3 mb-md-0">
+                                    <div class="detail-box p-3">
+                                        <h5>Совместимость</h5>
+                                        <div id="compatibility" class="detail-content">
+                                            <span class="zodiac-symbol"></span>
+                                            <span class="sign-name"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="detail-box p-3">
+                                        <h5>Настроение</h5>
+                                        <div id="mood" class="detail-content"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-box p-3 mt-3">
+                                <h5>Счастливые числа</h5>
+                                <div id="luckyNumbers" class="detail-content d-flex justify-content-center gap-2"></div>
+                            </div>
+                            
+                            <div class="text-center mt-4">
+                                <button id="backBtn" class="btn btn-outline-secondary">← Назад</button>
+                                <button id="shareBtn" class="btn btn-primary">Поделиться</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="text-center py-4 mt-5">
+            <p class="small text-muted">
+                Астрологический прогноз сгенерирован с помощью искусственного интеллекта и носит развлекательный характер.
+            </p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

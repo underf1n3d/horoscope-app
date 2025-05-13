@@ -1,0 +1,189 @@
+﻿
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: #0a0b17;
+    color: #ffffff;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Playfair Display', serif;
+}
+
+.main-container {
+    position: relative;
+    z-index: 10;
+}
+
+.stars-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+#stars, #stars2, #stars3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#stars {
+    background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png') repeat;
+    animation: animateStars 50s linear infinite;
+    z-index: 0;
+}
+
+#stars2 {
+    background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars2.png') repeat;
+    animation: animateStars 100s linear infinite;
+    z-index: 1;
+}
+
+#stars3 {
+    background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars3.png') repeat;
+    animation: animateStars 150s linear infinite;
+    z-index: 2;
+}
+
+@keyframes animateStars {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(-1000px);
+    }
+}
+
+.cosmic-glow {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3), 
+                 0 0 10px rgba(153, 117, 191, 0.3), 
+                 0 0 15px rgba(76, 98, 191, 0.3);
+}
+
+.zodiac-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.zodiac-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 5px;
+    background: rgba(41, 41, 61, 0.5);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.zodiac-item:hover {
+    background: rgba(55, 55, 80, 0.8);
+    transform: translateY(-2px);
+}
+
+.zodiac-item.active {
+    background: rgba(55, 90, 127, 0.8);
+    box-shadow: 0 0 15px rgba(81, 140, 204, 0.4);
+}
+
+.zodiac-icon {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.zodiac-name {
+    font-size: 14px;
+    text-align: center;
+}
+
+.sign-icon {
+    font-size: 48px;
+    height: 70px;
+    width: 70px;
+    line-height: 70px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: rgba(55, 90, 127, 0.5);
+    box-shadow: 0 0 20px rgba(81, 140, 204, 0.3);
+}
+
+.prediction-box {
+    background: rgba(41, 41, 61, 0.5);
+    border-radius: 10px;
+    border-left: 4px solid rgba(81, 140, 204, 0.7);
+}
+
+.prediction-text {
+    font-size: 17px;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+.detail-box {
+    background: rgba(41, 41, 61, 0.3);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.detail-box h5 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.detail-content {
+    font-size: 16px;
+}
+
+.lucky-number {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    background: rgba(55, 90, 127, 0.7);
+    margin: 0 5px;
+}
+
+@media (max-width: 767px) {
+    .zodiac-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .sign-icon {
+        font-size: 40px;
+        height: 60px;
+        width: 60px;
+        line-height: 60px;
+    }
+    
+    .prediction-text {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 575px) {
+    .zodiac-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .prediction-text {
+        font-size: 15px;
+    }
+}
